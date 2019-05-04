@@ -61,7 +61,10 @@ def GetCode(number):
         return fixed_line_code
     if " " in number:
         mobile_prefix = number[0:4]
-        return mobile_prefix
+        if mobile_prefix[0] == "7" or mobile_prefix[0] == "8" or mobile_prefix[0] == "9":
+            return mobile_prefix
+        else:
+            return None
     if number[0:3] == "140":
         return "140"
     return None
@@ -69,11 +72,10 @@ def GetCode(number):
 for call in calls:
     callerCode = GetCode(call[0])
     answerCode = GetCode(call[1])
+    if callerCode.startswith("080") and answerCode not in codes and answerCode != None:
+        codes.append(answerCode)
     if callerCode == "080" and answerCode == "080":
       bangalore_to_bangalore = bangalore_to_bangalore + 1
-    if callerCode != None and callerCode not in codes:
-        codes.append(callerCode)  
-
 codes.sort()
 
 

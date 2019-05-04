@@ -21,11 +21,6 @@ September 2016.".
 dx
 """
 
-september_calls = []
-
-for call in calls:
-    if call[2][0] == "9":
-        september_calls.append(call)
 """
 Run Time Analysis
 **********************
@@ -59,7 +54,7 @@ Run Time Analysis
 O(n) - One loop through entries
 """
 
-for call in september_calls:
+for call in calls:
     for duration_dict in duration_dicts:
         if duration_dict["number"] == call[0]:
             duration_dict["duration"] += int(call[3])
