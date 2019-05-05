@@ -4,17 +4,17 @@ O(1) - Not dependent on inputs.
 
 Task1
 **********************
-O(n^3) - Worst case is that it would have to loop through all the entries 3 times if they were all unique numbers.
+O(n) - Out input is the total list of calls and we are always looping over that entire list at least once.
 
 Task2
 **********************
-O(n^3) - Worst case is that it would have to loop through all the entries 3 times if they were all unique numbers.
+O(n) 
 
 
 Task3
 **********************
-O(n) - One loop through all calls. Other loops are small in comparison to the length of call list.
+O(n) 
 
 Task4
 **********************
-O(n^3) - If all the texts were sent to and from unique numbers, it would have be two nested loops through all texts.
+O(n) 
