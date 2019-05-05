@@ -46,7 +46,7 @@ The percentage should have 2 decimal digits
 
 codes=[]
 bangalore_to_bangalore = 0
-total_calls = len(calls)
+total_bangalore_calls = []
 
 def GetCode(number):
     if number[0] == "(":
@@ -78,8 +78,6 @@ for call in calls:
       bangalore_to_bangalore = bangalore_to_bangalore + 1
 codes.sort()
 
-
-
 """
 Run Time Analysis
 **********************
@@ -94,5 +92,12 @@ print("The numbers called by people in Bangalore have codes:")
 for code in codes:
     print(code)
 
-print("{} percent of calls from fixed lines in Bangalore are calls".format(round(bangalore_to_bangalore/total_calls * 100, 2)) +
+for call in calls:
+    for code in codes:
+        if code == "080":
+            code = "(080)"
+            if call[0].startswith(code):
+                total_bangalore_calls.append(call)
+print("**************************")
+print("{} percent of calls from fixed lines in Bangalore are calls".format(round(bangalore_to_bangalore/len(total_bangalore_calls) * 100, 2)) +
 " to other fixed lines in Bangalore.")
